@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LiveRecorder/LiveRecorder.csproj" />
+  <Project Path="LiveStatusChecker/LiveStatusChecker.csproj" />
+  <Project Path="TiktokThings/TiktokThings.csproj" />
+</Solution>
