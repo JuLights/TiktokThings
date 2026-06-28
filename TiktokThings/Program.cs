@@ -31,19 +31,26 @@ public class Program
 
         _liveRec = new LiveRec(_userName);
 
-        bool isLive = false;
+        bool canRecord = false;
+        bool alreadyRecording = false;
 
-        while (isLive == false)
+        while (true)
         {
             await Task.Delay(10000);
 
             _roomId = await _liveChecker.GetRoomIdAsync(_userName);
 
-            isLive = await _liveChecker.CheckLiveStatus(_roomId);
+            canRecord = await _liveChecker.CheckLiveStatus(_roomId);
+
+            if (canRecord && alreadyRecording == false)
+            {
+                await StartRecording();
+                alreadyRecording = true;
+            }
+
         }
 
-        if (isLive)
-            await StartRecording();
+        
 
 
     }
